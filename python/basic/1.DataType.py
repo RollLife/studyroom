@@ -11,3 +11,9 @@ print(1000)  # 큰 숫자
 print(5 + 3)  # 연산
 print(2 * 8)  # 곱연산
 print(3 * (3 + 1))  # 다소 복잡한(?) 연산
+
+# 문자형 자료형
+print('풍선')  # single quotation
+print("풍선")  # double quotation
+print("ㅋㅋㅋㅋㅋㅋㅋㅋㅋ")  # continuous string
+print("ㅋ" * 9)  # 위와 같은 결과
