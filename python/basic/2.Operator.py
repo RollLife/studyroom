@@ -1,6 +1,6 @@
 """
 본 로직은 나도코딩 연산자 파트를 따라서 작성함을 알립니다.
-https://www.youtube.com/watch?v=kWiCuklohdY&t=64s
+https://www.youtube.com/watch?v=kWiCuklohdY
 """
 
 # [연산자]
@@ -44,3 +44,19 @@ print((3 > 0) | (3 < 5))  # True (백 스페이스 밑에 있는 기호를 Shift
 # multi operator
 print(5 > 4 > 3)  # True
 print(5 > 4 > 7)  # False
+
+# [간단한 수식]
+
+print(2 + 3 * 4)  # 14
+print((2 + 3) * 4)  # 20
+number = 2 + 3 * 4  # 14
+print(number)
+number = number + 2  # 16
+print(number)
+number += 2  # 18
+print(number)
+number -= 2  # 16
+print(number)
+
+number %= 5  # 1
+print(number)
