@@ -60,3 +60,18 @@ print(number)
 
 number %= 5  # 1
 print(number)
+
+# [숫자처리함수]
+
+print(abs(-5))  # 5 | 절댓값
+print(pow(4, 2))  # 4^2 = 4*4  = 16 | 제곱값을 다음 인자만큼 계산해주는 함수
+print(max(5, 12))  # 12 | 주어진 인자중에서 최댓값을 구해주는 함수
+print(min(5, 12))  # 5  | 주어진 인자중에서 최솟값을 구해주는 함수
+print(round(3.14))  # 3 | 반올림함수
+print(round(4.99))  # 5
+
+from math import floor, ceil, sqrt  # 다른 라이브러리에서 함수를 가져옴
+
+print(floor(4.99))  # 4 | 무조건 내림
+print(ceil(3.14))  # 4 | 무조건 올림
+print(sqrt(16))  # 4 | 제곱근
