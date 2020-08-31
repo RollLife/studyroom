@@ -101,3 +101,32 @@ print("Redd\bApple")  # d 삭제 >> RedApple
 
 # \t : 탭(네 번 space 친것과 동일한 효과지만, 한개의 문자로 인식을 한다.)
 print("Red\tApple")
+
+# ---------------------------------------------------------------------------------------
+'''
+Quiz) 사이트별로 비밀번호를 만들어 주는 프로그램을 작성하시오
+
+예) http://naver.com
+규칙1: http:// 부분은 제외 => naver.com
+규칙2 : 처음 만나는 점(.) 이후 부분은 제외 => naver
+규칙3 : 남은 글자 중 처음 세자리(nav) + 글자 갯수(5) + 글자 내 'e' 갯수(1) + "!" 로 구성(!)
+
+예) 생성된 비밀 번호 : nav51!
+'''
+# ----------------------------------------------------------------------------------------
+
+# Answer
+
+site = "http://google.com"
+uri = site.replace("http://", "")
+
+first_dot_index = uri.index(".")
+uri = uri[:first_dot_index]
+
+until_third_index = uri[:3]
+text_length = len(uri)
+count_character_e = uri.count("e")
+
+password = f"{until_third_index}{text_length}{count_character_e}!"
+
+print(f"{site}에서 생성된 비밀번호 : {password}")
