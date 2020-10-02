@@ -75,3 +75,23 @@ for customer in starbucks:
 # while person != customer:  # customer가 토르일 경우에만 통과
 #     print("{}, 커피가 준비되었습니다.".format(customer))
 #     person = input("이름이 어떻게 되세요? ")
+
+
+# continue and break
+# 반복문 내에서 해당 반복을 넘어갈 것인지(continue), 반복을 그만둘것인지 결정함(break)
+
+# absent = [2, 5] # 결석
+# for student in range(1, 11):
+#     if student in absent: # 해당 값들이 있는 경우엔 반복을 진행시키지 않고 넘어감
+#         continue
+#     print("{}, 책을 읽어봐".format(student))
+
+absent = [2, 5]  # 결석
+no_book = [7]  # 책을 깜빡했음
+for student in range(1, 11):
+    if student in absent:
+        continue  # 해당 값들이 있는 경우엔 반복을 진행시키지 않고 넘어감(반복 계속 진행)
+    elif student in no_book:
+        print("오늘 수업 여기까지. {}는 교무실로 따라와".format(student))
+        break  # break는 반복문을 이 7번에서 종료를 시킴(반복 종료)
+    print("{}, 책을 읽어봐".format(student))
