@@ -162,3 +162,16 @@ print(python)
 # java를 까먹은 사람
 java.remove("김태호")  # 값 삭제
 print(java)
+
+# 자료구조의 변경
+menu = {"커피", "우유", "주스"}
+print(menu, type(menu))  # 자료형태가 set이라는 것을 확인 가능
+
+menu = list(menu)  # 메뉴의 자료 형태를 list로 변경
+print(menu, type(menu))
+
+menu = tuple(menu)  # 메뉴의 자료 형태를 tuple로 변경
+print(menu, type(menu))
+
+menu = set(menu)  # 메뉴의 자료 형태를 처음 형태인 set으로 변경
+print(menu, type(menu))
