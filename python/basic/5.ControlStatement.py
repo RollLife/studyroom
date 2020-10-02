@@ -100,7 +100,7 @@ for student in range(1, 11):
 # 출석번호가 1 2 3 4, 앞에 100을 붙이기로 함 -> 101, 102, 103, 104
 students = [1, 2, 3, 4, 5]
 print(students)
-students = [i+100 for i in students]
+students = [i + 100 for i in students]
 print(students)
 
 # 학생 이름을 길이로 변환
@@ -112,3 +112,47 @@ print(students)
 students = ["Iron man", "Thor", "I am groot"]
 students = [i.upper() for i in students]
 print(students)
+
+# ---------------------------------
+"""
+Quiz) 당신은 Cocoa 서비스를 이용하는 택시 기사님입니다.
+50명의 승객과 매칭 기회가 있을 때, 총 탑승 승객 수를 구하는 프로그램을 작성하시오.
+
+조건 1 : 승객별 운행 소요 시간은 5분 ~ 50분 사이의 난수로 정해집니다.
+조건 2 : 당신은 소요 시간 5분 ~ 15분 사이의 승객만 매칭되어야 합니다.
+
+(출력문 예제)
+[O] 1번째 손님 (소요시간 : 15분)
+[ ] 2번째 손님 (소요시간 : 50분)
+[O] 3번째 손님 (소요시간 : 5분)
+...
+[ ] 50번째 손님 (소요시간 : 16분) 
+"""
+
+# Answer)
+from random import randint
+
+passengers = [randint(5, 50) for _ in range(50)]
+correct_list = []
+for idx, passenger in enumerate(passengers):
+    if 5 <= passenger <= 15:
+        print(f"[O] {idx + 1}번째 손님 (소요시간 : {passenger}분)")
+        correct_list.append(correct_list)
+    else:
+        print(f"[ ] {idx + 1}번째 손님 (소요시간 : {passenger}분)")
+
+print(f"총 탑승 승객 수 : {len(correct_list)}분")
+
+# Correct Answer)
+from random import *
+
+cnt = 0  # 총 탑승 승객 수
+for i in range(1, 51):  # 1 ~ 50 이라는 수 (승객)
+    time = randrange(5, 51)  # 5분 ~ 50분 소요 시간
+    if 5 <= time <= 15:  # 5분 ~ 15분 이내의 손님 (매칭 성공), 탑승 승객 수 증가 처리
+        print(f"[O] {i}번째 손님 (소요시간 : {time}분)")
+        cnt += 1
+    else:  # 매칭 실패한 경우
+        print(f"[ ] {i}번째 손님 (소요시간 : {time}분)")
+
+print(f"총 탑승 승객 수 : {cnt}분")
