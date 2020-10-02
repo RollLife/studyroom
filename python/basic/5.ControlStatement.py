@@ -48,3 +48,30 @@ starbucks = ["아이언맨", "토르", "아이엠 그루트"]
 for customer in starbucks:
     print("{}, 커피가 준비되었습니다".format(customer))
 
+# while
+# 어떤 조건을 만족할때까지 반복
+
+
+# customer = "토르"
+# index = 5
+#
+# while index >= 1:
+#     print("{}, 커피가 준비되었습니다. {} 번 남았어요".format(customer, index))
+#     index -= 1
+#     if index == 0:
+#         print("커피는 폐기처분되었습니다.")
+
+
+# customer = "아이언맨"
+# index = 1
+# while True:  # 무한 루프
+#     print("{}, 커피가 준비되었습니다. {} 번 남았어요".format(customer, index))
+#     index += 1
+
+
+# customer = "토르"
+# person = "Unknown"
+#
+# while person != customer:  # customer가 토르일 경우에만 통과
+#     print("{}, 커피가 준비되었습니다.".format(customer))
+#     person = input("이름이 어떻게 되세요? ")
