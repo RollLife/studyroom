@@ -45,3 +45,25 @@ print(balance)
 
 commission, balance = withdraw_night(balance, 500)
 print("수수료 {0} 원이며, 잔액은 {1} 원입니다.".format(commission, balance))
+
+
+# 기본값(default)
+def profile(name, age, main_lang):
+    print("이름 : {0}\t 나이 : {1}\t 주 사용 언어 {2}" \
+          .format(name, age, main_lang))
+
+
+# 현재 이 값에 경우는 서로 다른 언어, 다른 사람, 공통정이 없는 사람들에 대한 분류
+profile("유재석", 20, "파이썬")
+profile("김태호", 25, "자바")
+
+
+# 같은 학교 같은 학년 같은 반 같은 수업
+def profile(name, age=17, main_lang="파이썬"):  # 기본값 정의
+    print("이름 : {0}\t 나이 : {1}\t 주 사용 언어 {2}" \
+          .format(name, age, main_lang))
+
+
+# 다른 인자값에 미리 기본값이 선언이 되어있다면 굳이 지정하지 않아도된다. 물론 지정해도 상관은 없다.
+profile("유재석")
+profile("김태호")
