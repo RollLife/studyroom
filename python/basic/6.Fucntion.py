@@ -67,3 +67,15 @@ def profile(name, age=17, main_lang="파이썬"):  # 기본값 정의
 # 다른 인자값에 미리 기본값이 선언이 되어있다면 굳이 지정하지 않아도된다. 물론 지정해도 상관은 없다.
 profile("유재석")
 profile("김태호")
+
+
+# 키워드 값 (keyword)
+
+def profile(name, age, main_lang):
+    print(name, age, main_lang)
+
+
+# 함수에서 선언된 매개변수의 값이 있다면 이렇게 키워드값을 선언해서 작성을 해준다면 순서가 뒤죽박죽이어도 함수를 선언하여 사용할 수 있다.
+profile(name="유재석", main_lang="파이썬", age=20)
+profile(main_lang="자바", name="김태호", age=25)
+
