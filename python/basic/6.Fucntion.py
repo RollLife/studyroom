@@ -79,3 +79,29 @@ def profile(name, age, main_lang):
 profile(name="유재석", main_lang="파이썬", age=20)
 profile(main_lang="자바", name="김태호", age=25)
 
+
+# 가변인자를 사용한 함수호출
+
+def profile(name, age, lang1, lang2, lang3, lang4, lang5):
+    print("이름 {0}\t나이 : {1}\t".format(name, age), end=" ")  # print 마지막에 end 키워드 값에 " "이런식으로 전달하면 줄바꿈없이 출력함
+    print(lang1, lang2, lang3, lang4, lang5)
+
+
+profile("유재석", 20, "Python", "Java", "C", "C++", "C#")
+profile("김태호", 25, "Kotlin", "Swift", "", "", "")  # 매번 이렇게 빈값을 작성시켜줘야함
+
+
+# profile("유재석", 20, "Python", "Java", "C", "C++", "C#", "Kotlin") # 만약 할줄아는 언어가 있다면 lang6을 또 추가시켜서 만들어줘야함
+
+
+def profile(name, age, *language):  # *language는 내가 놓고 싶은 만큼 인자를 놓을 수 있다.
+    print("이름 {0}\t나이 : {1}\t".format(name, age), end=" ")  # print 마지막에 end 키워드 값에 " "이런식으로 전달하면 줄바꿈없이 출력함
+    for lang in language:
+        print(lang, end=" ")
+    print()
+
+
+profile("유재석", 20, "Python", "Java", "C", "C++", "C#", "JavaScript")  # 한가지 인자가 더 늘어났지만 사용에는 문제가 없다.
+profile("김태호", 25, "Kotlin", "Swift")  # 추가 가변인자를 두개밖에 사용하지 않지만 같은 함수를 사용한다.
+
+# TIP) 서로 다른 갯수의 인자를 사용할때엔 *{variable} 을 통해 가변인자를 사용할 수 있다.
