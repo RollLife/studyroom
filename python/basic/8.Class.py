@@ -78,3 +78,27 @@ tank = Unit("탱크", 150, 35)
 # 파이썬에서 생성되는 생성자
 # init 함수에서 생성된 인자만큼 동일한 갯수의 인자들을 던져줘야함
 # marine과 tank는 Unit 클래스의 인스턴스라고 표현함
+
+
+# 멤버변수
+# 클래스 내에서 정의된 변수
+# self.name, self.hp 같은 애들이 멤버변수
+
+# 레이스 : 공중 유닛, 비행기, 클로킹 (상대방에게 보이지 않음)
+wraith1 = Unit("레이스", 80, 5)
+print("유닛 이름 : {}, 공격력 : {}".format(wraith1.name, wraith1.damage))  # 멤버 변수를 외부에서 사용함.
+
+# 레이스가 클로킹함
+wraith2 = Unit("레이스", 80, 5)
+wraith2.clocking = True # 외부에서 clocking이라는 변수를 추가로 할당함
+
+if wraith2.clocking == True:
+    print("{}는 현재 클로킹 상태입니다.".format(wraith2.name))
+
+# if wraith1.clocking == True: # Error!
+#     print("{}는 현재 클로킹 상태입니다.".format(wraith2.name))
+
+# >> wraith2에만 확장적으로 clocking이라는 멤버 변수가 추가가 되었지만 wraith1에는 clocking이라는 변수가 없음
+#TIP) 어떤 객체에 대해서 확장적으로 변수를 할당할 수 있고, 할당한 객체만 적용이되고 다른 객체에는 적용이 되지않는다.
+
+
