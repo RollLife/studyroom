@@ -139,3 +139,49 @@ firebat1.attack("5시")  # 공격함
 # 두번 공격받음
 firebat1.damaged(25)
 firebat1.damaged(25)
+
+
+# 상속 (inheritance)
+# 물려받음, Unit이라는 클래스에 있는 속성들을 상속 받음
+
+# 메딕 : 의무병 (공격유닛 X)
+class Unit:
+    def __init__(self, name, hp):
+        self.name = name
+        self.hp = hp
+
+
+# 위에서 작성된 코드를 동일하게 동작하되 상속되게끔 작성해본다
+class AttackUnit(Unit):  # Unit 클래스를 상속
+    def __init__(self, name, hp, damage):
+        Unit.__init__(self, name, hp)  # Unit 클래스를 상속했다면 똑같이 인자들도 할당시켜주어야함
+        # self.name, self.hp 또한 상속받아서 선언하지 않아도됨
+        self.damage = damage  # 상속받은것 이외에 다른 변수를 추가 할당
+
+    def attack(self, location):
+        """
+        공격하는 함수
+        """
+        # self는 자기 자신에 대한 변수
+        # name과 damage는 자기자신(Unit 클래스)에 정의되었으니 self.name, self.damage라고 사용이 가능하다.
+        # location은 자기자신(Unit 클래스)에 정의되지않았고, 전달받은 변수이기때문에 self.을 사용하지 않고 사용한다.(물론 정의한다면 멤버변수로 사용가능)
+        print("{} : {} 방향으로 적군을 공격 합니다. [공격력 {}]".format(self.name, location, self.damage))
+
+    def damaged(self, damage):
+        """
+        공격받은 함수
+        """
+        print("{} : {} 데미지를 입었습니다.".format(self.name, damage))
+        self.hp -= damage
+        print("{} : 현재 체력은 {} 입니다.".format(self.name, self.hp))
+        if self.hp <= 0:
+            print("{} : 파괴되었습니다.".format(self.name))
+
+
+# 파이어뱃 : 공격 유닛, 화염방사기.
+firebat1 = AttackUnit("파이어뱃", 50, 50)
+firebat1.attack("5시")  # 공격함
+
+# 두번 공격받음
+firebat1.damaged(25)
+firebat1.damaged(25)
