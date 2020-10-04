@@ -246,6 +246,7 @@ dmypy.json
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm
 
 # python - basic - 7.InputOutput study files
-profile.pickle
-score.txt
-study.txt
+python/basic/profile.pickle
+python/basic/score.txt
+python/basic/study.txt
+python/basic/*주차.txt
