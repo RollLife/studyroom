@@ -55,6 +55,9 @@ attack(tank2_name, "1시", tank2_damage)
 class Unit:
     def __init__(self, name, hp, damage):
         # 필요한 값들을 정의
+        # init 함수
+        # 파이썬에서 생성되는 생성자
+        # init 함수에서 생성된 인자만큼 동일한 갯수의 인자들을 던져줘야함
         self.name = name
         self.hp = hp
         self.damage = damage
@@ -65,6 +68,13 @@ class Unit:
 marine1 = Unit("마린", 40, 5)  # self를 제외한 나머지 인자에 값 전달
 marine2 = Unit("마린", 40, 5)
 tank = Unit("탱크", 150, 35)
+# tank = Unit("tank") # 정의된 argument만큼 전달하지 못하기때문에 오류가 발생됨
+# marine과 tank는 Unit 클래스의 인스턴스라고 표현함
 
 # >> 똑같은 클래스에서 서로 다른 유닛들을 생성하였음
-# definition
+
+
+# init 함수
+# 파이썬에서 생성되는 생성자
+# init 함수에서 생성된 인자만큼 동일한 갯수의 인자들을 던져줘야함
+# marine과 tank는 Unit 클래스의 인스턴스라고 표현함
