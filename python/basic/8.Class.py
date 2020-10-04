@@ -90,15 +90,52 @@ print("유닛 이름 : {}, 공격력 : {}".format(wraith1.name, wraith1.damage))
 
 # 레이스가 클로킹함
 wraith2 = Unit("레이스", 80, 5)
-wraith2.clocking = True # 외부에서 clocking이라는 변수를 추가로 할당함
+wraith2.clocking = True  # 외부에서 clocking이라는 변수를 추가로 할당함
 
 if wraith2.clocking == True:
     print("{}는 현재 클로킹 상태입니다.".format(wraith2.name))
+
 
 # if wraith1.clocking == True: # Error!
 #     print("{}는 현재 클로킹 상태입니다.".format(wraith2.name))
 
 # >> wraith2에만 확장적으로 clocking이라는 멤버 변수가 추가가 되었지만 wraith1에는 clocking이라는 변수가 없음
-#TIP) 어떤 객체에 대해서 확장적으로 변수를 할당할 수 있고, 할당한 객체만 적용이되고 다른 객체에는 적용이 되지않는다.
+# TIP) 어떤 객체에 대해서 확장적으로 변수를 할당할 수 있고, 할당한 객체만 적용이되고 다른 객체에는 적용이 되지않는다.
 
 
+# 메소드
+
+# 공격 유닛 클래스 생성
+class AttackUnit:
+    def __init__(self, name, hp, damage):
+        self.name = name
+        self.hp = hp
+        self.damage = damage
+
+    def attack(self, location):
+        """
+        공격하는 함수
+        """
+        # self는 자기 자신에 대한 변수
+        # name과 damage는 자기자신(Unit 클래스)에 정의되었으니 self.name, self.damage라고 사용이 가능하다.
+        # location은 자기자신(Unit 클래스)에 정의되지않았고, 전달받은 변수이기때문에 self.을 사용하지 않고 사용한다.(물론 정의한다면 멤버변수로 사용가능)
+        print("{} : {} 방향으로 적군을 공격 합니다. [공격력 {}]".format(self.name, location, self.damage))
+
+    def damaged(self, damage):
+        """
+        공격받은 함수
+        """
+        print("{} : {} 데미지를 입었습니다.".format(self.name, damage))
+        self.hp -= damage
+        print("{} : 현재 체력은 {} 입니다.".format(self.name, self.hp))
+        if self.hp <= 0:
+            print("{} : 파괴되었습니다.".format(self.name))
+
+
+# 파이어뱃 : 공격 유닛, 화염방사기.
+firebat1 = AttackUnit("파이어뱃", 50, 50)
+firebat1.attack("5시")  # 공격함
+
+# 두번 공격받음
+firebat1.damaged(25)
+firebat1.damaged(25)
