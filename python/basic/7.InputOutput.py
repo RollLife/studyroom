@@ -123,7 +123,25 @@ print(profile)
 pickle.dump(profile, profile_file)  # profile에 있는 정보를 file에 저장
 profile_file.close()
 
-profile_file = open("profile.pickle", "rb") # 읽기 전용, 바이너리
-profile = pickle.load(profile_file) # 파일에 있는 정보를 profile에 불러오기
+profile_file = open("profile.pickle", "rb")  # 읽기 전용, 바이너리
+profile = pickle.load(profile_file)  # 파일에 있는 정보를 profile에 불러오기
 print(profile)
 profile_file.close()
+
+# with
+# 지금까지는 파일을 작업할때 항상 파일을 열고 닫고 했어야했음.
+# 따로 close를 하지 않아도됨, 더욱 수월하게 파일처리가 가능함
+
+import pickle
+
+# 피클을 이용한 파일 불러오기
+with open("profile.pickle", "rb") as profile_file:
+    print(pickle.load(profile_file))
+
+# 쓰기
+with open("study.txt", "w", encoding="utf8") as study_file:
+    study_file.write("파이썬을 열심히 공부하고 있어요")
+
+# 읽기
+with open("study.txt", "r", encoding="utf8") as study_file:
+    print(study_file.read())
