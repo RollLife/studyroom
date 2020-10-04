@@ -72,3 +72,42 @@ print("{0:f}".format(5 / 3))
 # 소수점 특정 자리수 까지만 표시(소수점 3째 자리에서 반올림)
 print("{0:.2f}".format(5 / 3))
 print(f"{5 / 3:.2f}")  # 같은 문장이지만 f string으로 작성
+
+# 파일 입출력
+score_file = open("score.txt", "w", encoding="utf8")  # score.txt를 쓰기 목적을 위한 파일로 열고 인코딩을 utf8로 맞춰준다.
+print("수학 : 0 ", file=score_file)  # print는 자동 줄바꿈
+print("영어 : 50", file=score_file)
+score_file.close()  # 파일은 열면 항상 닫아줘야한다.
+
+score_file = open("score.txt", "a", encoding="utf8")  # 이미 존재하는 파일에 덮어씌우기(a는 append의 의미)
+score_file.write("과학 : 80")
+score_file.write("\n코딩 : 100")  # write는 줄바꿈이 안되기때문에 명시적으로 작성해주어야한다.
+
+score_file = open("score.txt", "r", encoding="utf8")  # 작성된 파일을 읽기
+print(score_file.read())  # 한번에 모든 내용을 불러오기
+score_file.close()
+
+# 각각 한줄씩 읽기
+score_file = open("score.txt", "r", encoding="utf8")
+print(score_file.readline())  # 줄별로 읽기, 한 줄 읽고 커서는 다음 줄로 이동
+print(score_file.readline())  # print는 자동줄바꾸미 되기때문에 한줄 더 줄바꿈이 되고있음.
+print(score_file.readline(), end="")  # 줄바꿈 안하기
+print(score_file.readline())  # 줄바꿈 안하기
+score_file.close()
+
+# 반복문을 통한 출력
+score_file = open("score.txt", "r", encoding="utf8")
+while True:
+    line = score_file.readline()
+    if not line:
+        break
+    print(line, end="")
+score_file.close()
+
+# 리스트 형태로 저장후 출력
+score_file = open("score.txt", "r", encoding="utf8")
+lines = score_file.readlines()
+for line in lines:
+    print(line, end="")
+
+score_file.close()
