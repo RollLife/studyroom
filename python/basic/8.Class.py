@@ -282,3 +282,31 @@ class FlyableAttackUnit(AttackUnit, Flyable):
 
 battlecruiser = FlyableAttackUnit("배틀크루저", 500, 25, 3)
 battlecruiser.move("9시")
+
+
+# pass
+# 건물을 만든다고 생각
+
+class BuildingUnit(Unit):
+    def __init__(self, name, hp, locatio):
+        pass  # 아무 동작도 실행시키지 않고 넘어간다.
+
+
+# 서플라이 디폿 : 건물, 1개 건물 = 8개의 유닛을 생성 가능
+supply_depot = BuildingUnit("서플라이 디폿", 500, "7시")  # 오류 없이 동작하고 끝냄
+
+
+# pass 는 아무런 동작하지 않고 넘어간다는 의미
+# 다른곳에서도 사용가능
+
+def game_start():
+    print("[알림] 새로운 게임을 시작합니다.")
+
+
+def game_over():
+    pass
+
+
+game_start()  # 시작한다고 알림이 옴
+game_over()  # 해당 함수는 불러왔지만 실행부분을 생략했기에 아무런 동작하지 않은것처럼 보인다.
+
