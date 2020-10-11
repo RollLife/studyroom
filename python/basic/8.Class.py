@@ -288,7 +288,7 @@ battlecruiser.move("9시")
 # 건물을 만든다고 생각
 
 class BuildingUnit(Unit):
-    def __init__(self, name, hp, locatio):
+    def __init__(self, name, hp, location):
         pass  # 아무 동작도 실행시키지 않고 넘어간다.
 
 
@@ -310,3 +310,57 @@ def game_over():
 game_start()  # 시작한다고 알림이 옴
 game_over()  # 해당 함수는 불러왔지만 실행부분을 생략했기에 아무런 동작하지 않은것처럼 보인다.
 
+
+# super
+class BuildingUnit(Unit):
+    def __init__(self, name, hp, location):
+        # Unit.__init__(self, name, hp, speed=0)  # 지금까지 초기화를 이런방식으로 걔속 진행해왔음
+        super().__init__(name, hp, 0)  # 이런 방식으로 상속받은 객체에 대해서 초기화를 해줄 수 있다.(self는 기입 X)
+        # >> 다만 이렇게하면 다중상속에서 문제가 생긴다
+        self.location = location
+
+
+# 간단하게 다중 상속시에 어떻게 되는지 테스트 하기위한 테스트 클래스 선언
+class Unit:
+    def __init__(self):
+        print("Unit 생성자")
+
+
+class Flyable:
+    def __init__(self):
+        print("Flyable 생성자")
+
+
+class FlyableUnit(Unit, Flyable):
+    def __init__(self):
+        super().__init__()
+
+
+# 드랍쉽
+dropship = FlyableUnit()  # >> 'Unit 생성자'만 출력이 되었다.
+
+
+# Unit의 init을 탔지만, Flyable의 init은 타지 않은것
+
+
+class FlyableUnit(Flyable, Unit):  # Flyable 생성자를 먼저 상속 받는다
+    def __init__(self):
+        super().__init__()
+
+
+dropship = FlyableUnit()  # >> 'Flyable 생성자'만 출력이 되었다.
+
+
+# Flyable의 init을 탔지만, Unit의 init은 타지 않은것
+
+# >> 이렇듯 super를 이용한 다중 상속을 할 경우 이렇게 먼저 상속된 부모클래스만 초기화를 할 수 있다는 단점이 있다
+# 그리하여 다중상속을 받을 경우 명시적으로 초기화를 각각 해주어야한다.(super를 사용하지 않고)
+
+class FlyableUnit(Unit, Flyable):
+    def __init__(self):
+        # super().__init__()
+        Unit.__init__(self)
+        Flyable.__init__(self)
+
+
+dropship = FlyableUnit()  # >> 모든 생성자가 호출된것을 확인할 수 있다.
