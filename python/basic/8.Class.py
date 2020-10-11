@@ -364,3 +364,120 @@ class FlyableUnit(Unit, Flyable):
 
 
 dropship = FlyableUnit()  # >> 모든 생성자가 호출된것을 확인할 수 있다.
+
+# 스타크래프트 전반전
+# 실제 스타크래프트 게임을 텍스트 기반으로 지금까지 만들었던 기능을 활용하여 프로그램을 제작해보겠다.
+print("-" * 50 + "절취선" + "-" * 50)
+
+
+# 유닛 클래스
+class Unit:
+    def __init__(self, name, hp, speed):
+        self.name = name
+        self.hp = hp
+        self.speed = speed
+        print("{} 유닛이 생성되었습니다.".format(name))  # 유닛이 생성될때마다 생동감을 주기위해
+
+    def move(self, location):
+        print("[지상 유닛 이동]")
+        print("{} : {} 방향으로 이동합니다. [속도 {}]".format(self.name, location, self.speed))
+
+    # 일반 유닛 또한 피해를 받을 수 있기 때문에 메소드를 일반 유닛 클래스로 이동함
+    def damaged(self, damage):
+        """
+        공격받은 함수
+        """
+        print("{} : {} 데미지를 입었습니다.".format(self.name, damage))
+        self.hp -= damage
+        print("{} : 현재 체력은 {} 입니다.".format(self.name, self.hp))
+        if self.hp <= 0:
+            print("{} : 파괴되었습니다.".format(self.name))
+
+
+# 공격 유닛 클래스
+class AttackUnit(Unit):
+    def __init__(self, name, hp, speed, damage):
+        Unit.__init__(self, name, hp, speed)
+        self.damage = damage
+
+    def attack(self, location):
+        """
+        공격하는 함수
+        """
+        print("{} : {} 방향으로 적군을 공격 합니다. [공격력 {}]".format(self.name, location, self.damage))
+
+
+# 마린 클래스(이전에는 marine1, marine2 이렇게 선언하였지만 따로 클래스를 선언시켜준다)
+class Marine(AttackUnit):
+    def __init__(self):
+        AttackUnit.__init__(self, "마린", 40, 1, 5)
+
+    # 스팀팩 : 일정시간 동안 공격 속도 증가하는 마린의 특수 능력 , 자신의 체력 10 감소
+    def stimpack(self):
+        if self.hp > 10:  # 최소 조건 자신의 체력이 10 이상일때만 사용이 가능하도록 설정
+            self.hp -= 10
+            print("{} : 스팀팩을 사용합니다. (HP 10 감소)".format(self.name))
+        else:
+            print("{} : 체력이 부족하여 스팀팩을 사용하지 않습니다.".format(self.name))
+
+
+# 탱크 클래스
+class Tank(AttackUnit):
+    # 시즈모드 : 탱크를 지상에 고정시켜, 더 높은 파워로 공격 가능. 이동 불가.
+    seize_developed = False  # 시즈 모드 개발 여부, 모든 탱크에 대해 적용시키기 위해서 클래스 바로 앞에 매개변수를 활용하지않고 선언해준다.
+
+    # >> 한번 개발 되면 다시 변경이 필요없기 때문
+
+    def __init__(self):
+        AttackUnit.__init__(self, "탱크", 150, 1, 35)
+        self.seize_mode = False  # 시즈모드 상태 여부
+
+    def set_seize_mode(self):
+        if Tank.seize_developed == False:  # 시즈모드가 개발되어있지 않다면 그냥 넘어간다.
+            return
+
+        # 현재 시즈모드가 아닐 때 -> 시즈모드
+        if self.seize_mode == False:
+            print("{} : 시즈모드로 전환합니다.".format(self.name))
+            self.damage *= 2
+            self.seize_mode = True
+        # 현재 시즈모드일 때 -> 시즈모드 해제
+        else:
+            print("{} : 시즈모드를 해제합니다.".format(self.name))
+            self.damage /= 2
+            self.seize_mode = False
+
+
+# 날 수 있는 기능 클래스
+class Flyable:
+    def __init__(self, flying_speed):
+        self.flying_speed = flying_speed
+
+    def fly(self, name, location):
+        print("{} : {} 방향으로 날아갑니다. [속도 {}]".format(name, location, self.flying_speed))
+
+
+# 공중 공격 유닛 클래스
+class FlyableAttackUnit(AttackUnit, Flyable):
+    def __init__(self, name, hp, damage, flying_speed):
+        AttackUnit.__init__(self, name, hp, 0, damage)
+        Flyable.__init__(self, flying_speed)
+
+    def move(self, location):
+        print("[공중 유닛 이동]")
+        self.fly(self.name, location)
+
+
+# 레이스
+class Wraith(FlyableAttackUnit):
+    def __init__(self):
+        FlyableAttackUnit.__init__(self, "레이스", 80, 20, 5)
+        self.clocked = False  # 클로킹 모드 (해제 상태) -> 레이스는 처음 생산할때 클로킹 연구가 되어있는 상태로 만들어지지만 클로킹 모드가 아닌상태로 생성됨
+
+    def clocking(self):
+        if self.clocked == True:  # 클로킹 모드 -> 모드 해제
+            print("{} : 클로킹 모드 해제합니다.".format(self.name))
+            self.clocked = False
+        else:  # 클로킹 모드 해제 -> 모드 설정
+            print("{} : 클로킹 모드 설정합니다.".format(self.name))
+            self.clocked = True
