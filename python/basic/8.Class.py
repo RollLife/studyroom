@@ -365,7 +365,7 @@ class FlyableUnit(Unit, Flyable):
 
 dropship = FlyableUnit()  # >> 모든 생성자가 호출된것을 확인할 수 있다.
 
-# 스타크래프트 전반전
+# 스타크래프트 프로그램 Part.1
 # 실제 스타크래프트 게임을 텍스트 기반으로 지금까지 만들었던 기능을 활용하여 프로그램을 제작해보겠다.
 print("-" * 50 + "절취선" + "-" * 50)
 
@@ -379,7 +379,7 @@ class Unit:
         print("{} 유닛이 생성되었습니다.".format(name))  # 유닛이 생성될때마다 생동감을 주기위해
 
     def move(self, location):
-        print("[지상 유닛 이동]")
+        # print("[지상 유닛 이동]")
         print("{} : {} 방향으로 이동합니다. [속도 {}]".format(self.name, location, self.speed))
 
     # 일반 유닛 또한 피해를 받을 수 있기 때문에 메소드를 일반 유닛 클래스로 이동함
@@ -464,7 +464,7 @@ class FlyableAttackUnit(AttackUnit, Flyable):
         Flyable.__init__(self, flying_speed)
 
     def move(self, location):
-        print("[공중 유닛 이동]")
+        # print("[공중 유닛 이동]")
         self.fly(self.name, location)
 
 
@@ -481,3 +481,69 @@ class Wraith(FlyableAttackUnit):
         else:  # 클로킹 모드 해제 -> 모드 설정
             print("{} : 클로킹 모드 설정합니다.".format(self.name))
             self.clocked = True
+
+
+# 스타크래프트 프로그램 Part.2
+
+def game_start():
+    print("[알림] 새로운 게임을 시작합니다.")
+
+
+def game_over():
+    print("Player : gg")  # good game
+    print("[Player] 님이 게임에서 퇴장하였습니다.")
+
+
+# 실제 게임 시작
+game_start()
+
+# 마린 3기 생성
+m1 = Marine()
+m2 = Marine()
+m3 = Marine()
+
+# 탱크 2기 생성
+t1 = Tank()
+t2 = Tank()
+
+# 레이스 1기 생성
+w1 = Wraith()
+
+# 유닛 일괄 관리 (생성된 모든 유닛 append)
+attack_units = []
+attack_units.append(m1)
+attack_units.append(m2)
+attack_units.append(m3)
+attack_units.append(t1)
+attack_units.append(t2)
+attack_units.append(w1)
+
+# 전군 이동
+for unit in attack_units:
+    unit.move("1시")
+
+# 탱크 시즈모드 개발
+Tank.seize_developed = True
+print("[알림] 탱크 시즈 모드 개발이 완료되었습니다.")
+
+# 공격 모드 준비 (마린 : 스팀팩, 탱크 : 시즈 모드, 레이스 : 클로킹)
+for unit in attack_units:
+    if isinstance(unit, Marine):  # 해당 객체가 어떤 인스턴스인지 확인하는 메소드 / 마린인지 확인하는 메소드
+        unit.stimpack()
+    elif isinstance(unit, Tank):
+        unit.set_seize_mode()
+    elif isinstance(unit, Wraith):
+        unit.clocking()
+
+# 전군 공격
+for unit in attack_units:
+    unit.attack("1시")
+
+from random import randint
+
+# 전군 피해
+for unit in attack_units:
+    unit.damaged(randint(5, 21))  # 5 ~20 사이의 공격을 받음
+
+# 게임 종료
+game_over()
