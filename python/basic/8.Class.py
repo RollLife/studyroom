@@ -211,4 +211,4 @@ class FlyableAttackUnit(AttackUnit, Flyable):  # >> AttackUnit, Flyable 두 개�
 
 # 발키리 : 공중 공격 유닛, 한번에 14발 미사일 발사.
 valkrie = FlyableAttackUnit("발키리", 200, 6, 5) # 초기화 및 선언
-valkrie.fly(valkrie.name, "3시", "inheritance")
+valkrie.fly(valkrie.name, "3시")
