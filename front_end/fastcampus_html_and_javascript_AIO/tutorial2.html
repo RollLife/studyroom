@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html 첫걸음</title>
+
+
+</head>
+<body>
+index.html이 기본
+<p>html -> html의 파일의 모든 범위, 시작과 끝을 구분하는것</p>
+<p>head -> 전체 문서의 정보, 문서가 가질 수 있는 정보</p>
+<p>body -> 전체 문서의 구조, 문자, 동영상, 이미지 등.. 문서가 어떤 정보를 가지고 있는것</p>
+
+
+doctype -> html의 파일이 어떤 버전인지 정의하는 부분, 현재 표준모드는 html5, 가장 최신버전을 정의하고싶다면
+<p><!DOCTYPE html> 로 쓰면된다.</p>
+
+
+<p>head태그 안에 넣어야하는 놈들</p>
+
+<p>title</p> -> 웹페이지의 제목
+<p>meta</p> 웹페이지의 정보
+제작자, 표시방식 키워드 내용?
+기타 모든 정보
+
+
+<meta charset="UTF-8">문자를 인코딩 방식
+<p> 선언을 해두어야함 필수!</p>
+
+
+기타 메타 속성은는 name안에 author , description 등이 있다.
+
+
+<p>link 태그</p>
+CSS불러오거나 , html문서, 자바스크립트를 불러올때 사용
+
+<!--rel = relation 관계 이 문서와 가져올 문서와의 관계는 무엇이냐-->
+<link rel="stylesheet" href="./css/main.css">
+<link rel="icon" href="./favicon.png">
+favicon은 title에 생성되는 이미지이다. favorite_icon이라는 의미
+
+link는 rel이 필수적으로 필요하다.
+
+
+<p>style tag</p>
+css를 외부문서에 작성하여 연결하는것이 아니고 html 문서 내부에 작성할 때 사용함
+이렇게
+<!--<style>-->
+<!--    p {-->
+<!--        color: aqua;-->
+<!--    }-->
+<!--</style>-->
+
+<p>script tag</p>
+css문서는 link로 불러와야하고 직접작성할때는 style로 작성을 해야했지만
+
+js는 script태그로 js문서를 불러올 수 있고 또한 js코드를 직접 작성도 가능하다.
+
+
+<!--<meta name="author">-->
+
+
+
+
+</body>
+</html>
