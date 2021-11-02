@@ -50,4 +50,27 @@ print(TestClass.__dict__['stock_num'])
 user1 = TestClass("asdf")
 print(user1.stock_num)  # 인스턴스로 변수가 할당되어있지 않으면 클래스 변수를 참조해서 가져온다. 만약 클래스 변수에도 없으면 에러
 
+
 # 클래스 변수는 약간 공동 변수라고 생각하면된다. 글로벌 변수처럼. 하나의 변수를 모든 인스턴스와 공유함.
+
+# 상속 기본
+
+
+def test_function(*asdf, **blabla):
+    result = asdf
+    chap = blabla
+    a = [result, chap]
+    return a
+
+# 메소드 오버라이딩 - 부모 클래스의 메소드를 수정해서 다르게 바꾸는것
+
+# 부모 클래스의 method call - super().method_name()
+
+# Inheritance.info
+# mro 상속 정보를 list타입으로 알 수 있는 것
+
+# Class.mro() 모든 상속의 정보를 알 수 있는 함수
+
+# 모든 클래스는 object를 상속 받지만 기재하지 않아도 된다. 하지만 명시적으로 기재를 해도 상관없다.
+
+
