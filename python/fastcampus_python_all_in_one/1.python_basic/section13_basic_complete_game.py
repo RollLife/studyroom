@@ -13,7 +13,7 @@ import datetime
 # DB 생성 & Auto Commit
 # 본인 DB 경로
 
-conn = sqlite3.connect("./resource/records.db", isolation_level=None)
+conn = sqlite3.connect("resource/records.db", isolation_level=None)
 
 # Cursor 연결
 cursor = conn.cursor()
@@ -27,7 +27,7 @@ words = []  # 영어 단어 리스트(1000개 로드)
 n = 1  # 게임 시도 횟수
 cor_cnt = 0  # 정답 개수
 
-with open("./resource/word.txt", 'r') as f:
+with open("resource/word.txt", 'r') as f:
     for c in f:
         words.append(c.strip())
 
