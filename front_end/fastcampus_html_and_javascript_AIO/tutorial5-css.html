@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  css를 어떤 태그를 정하고 그것에 대한 속성과 값을 수정하는것을 말할때
+css를 어떤 태그를 정하고 그것에 대한 속성과 값을 수정하는것을 말할때
 
 선택자라고 말을 한다.(Selector)
 css의 특정한 요소를 지칭하는것을 셀렉터 즉 선택자
@@ -18,7 +18,7 @@ html의 속성은 attribute라고 칭한다.
 css의 속성은
 
 div {
- color : red;
+color : red;
 }
 이런형식으로 스타일을 지정한다.
 
@@ -29,14 +29,17 @@ css의 속성 목록은 이후에 또 설명될것임
 
 
 선택자 {
-속성 : 값;
+속성(property) : 값;
 }
 이런형식으로 지정을 한다.
 
+html의 속성은 attribute라고 칭한다.
 
 선택자의 종류, 속성의 종류의 목록을 학습할 것임
 
-html안에 css태그를 선언하려면 <tag style="color: red"> </tag> 로 선언하면된다.
+html안에 css태그를 선언하려면
+<tag style="color: red"></tag>
+로 선언하면된다.
 (inline 작성 방식)
 
 -> 단점: 일일이 모든 태그에 이렇게 선언을 해주어야한다. 인라인 방식으로 지정을 하는것은 지양해야하는 작성 방식임.
@@ -48,5 +51,65 @@ html안에 css태그를 선언하려면 <tag style="color: red"> </tag> 로 선�
 head태그 안에 style형태로 집어넣는거
 
 
+클래스 선택자
+
+.title {
+color: red;
+}
+
+.은 클래스 선택자를 의미한다( title이라는 class 선택자를 찾아서 해당 클래스를 갖고 있는 모든 태그의 색상을 변경한다.
+
+
+속성 종류
+# width (가로 너비) -> 단위는 px
+# height (세로 너비)
+# font-size (글자 크기) 기본값 16px
+<p style="width: 300px; height:200px;
+background: red;
+ /*border: 1px solid black;*/
+ font-size: 20px;
+/* 폰트 사이즈의 기본값은 16px이다.*/
+">width : 300px(웹에서는 300px을 제일 많이 사용함)</p>
+
+실제로는 태그 선택자 div 이렇게 사용하지 않는다.
+클래스 선택자로 많이 사용하지 태그 자체로 모든 태그가 적용되기 때문에 태그 선택자는 지양하는 편이다
+
+
+<div class="ground">
+    <p>여백</p>
+    <ul class="margin">
+        <li># margin 요소 바깥의 여백</li>
+        <li>margin-top</li>
+        <li>margin-rigth</li>
+        <li>margin-bottom</li>
+        <li>margin-left</li>
+        <li>이 모든것은 margin의 단축속성, 그리고 개별속성이라고 부른다.</li>
+        <li>개별속성이 존재하면 단축속성이 있다 -> margin</li>
+        <li>개별속성 -> top, right, bottom left</li>
+    </ul>
+    <div class="padding">
+        <li># padding 안쪽 여백의 값</li>
+        <li>padding 또한 단축속성임</li>
+        <li>top, right, bottom, left margin처럼 사용가능하다.</li>
+    </div>
+</div>
+
+
+<div class="box"></div>
+<div class="box box2"></div>
+# box2는 box를 상속해서 사용한다.
+
 </body>
+<style>
+    .box {
+        width: 300px;
+        height: 200px;
+        background: red;
+        margin: 10px;
+
+    }
+    .box2 {
+        padding: 10px;
+    }
+</style>
 </html>
