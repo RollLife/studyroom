@@ -99,6 +99,17 @@ background: red;
 <div class="box box2"></div>
 # box2는 box를 상속해서 사용한다.
 
+
+<div class="color">
+    <p>색상 </p>
+    <ul>
+        <li>color : 글자 색상</li>
+        <li>background : 요소의 배경 색상 뿐만 아니라 다른 속성값도 기재가능, 단축속성</li>
+        <li>background-color : 배경 속성의 개별속성, 색상만 지정가능</li>
+    </ul>
+
+</div>
+
 </body>
 <style>
     .box {
@@ -108,8 +119,15 @@ background: red;
         margin: 10px;
 
     }
+
     .box2 {
         padding: 10px;
+    }
+    .color{
+        background: aqua;
+    }
+    .color p{
+        background-color: blue;
     }
 </style>
 </html>
