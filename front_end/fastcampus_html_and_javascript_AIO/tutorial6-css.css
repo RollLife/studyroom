@@ -2,33 +2,62 @@
 그것을 초기화 하고 사용할 필요가 있다.
 */
 
-body{
- margin: 0;
- padding: 0;
-}
-.header{
- /* 기본값으로 이렇게 들어가있다.*/
- width: auto;
- height: auto;
- /*width auto는 100% 가로가 꽉차게*/
- /*height는 늘어난 높이만큼 차지함*/
-
- background: yellowgreen;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-.container{
- /*width: 980px;*/
- background: tomato;
- width: 680px;
- margin: auto;
-/* margin auto는 header 요소의 중앙에 놓이도록 하는 속성*/
+.header {
+    /* 기본값으로 이렇게 들어가있다.*/
+    width: auto;
+    height: auto;
+    /*width auto는 100% 가로가 꽉차게*/
+    /*height는 늘어난 높이만큼 차지함*/
+
+    background: yellowgreen;
 }
-.continer-left{
+
+.container {
+    /*width: 980px;*/
+    background: tomato;
+    width: 680px;
+    margin: auto;
+    /* margin auto는 header 요소의 중앙에 놓이도록 하는 속성*/
+}
+
+.continer-left {
 
 }
-.logo{
+
+.logo {
+    /*로고와 메뉴를 수평상태로 만들기 위해 둘다 추가한다. 하지만 이 상태로만 추가한다면 에러가 발생한다.*/
+    float: left;
+    margin-right: 5px;
+}
+
+/*logo 클래스 안에 있는 img태그만 지정*/
+.logo img {
+    /* img가 띄워져있던 현상을 제거 할 수 있게됨*/
+    display: block;
 
 }
-.menu{
 
+.menu {
+    /*로고와 메뉴를 수평상태로 만들기 위해 둘다 추가한다. 하지만 이 상태로만 추가한다면 에러가 발생한다.*/
+    float: left;
+}
+
+.menu-item {
+    /* 수평으로 만드게 끔 하는 속성은 아니지만 이 속성을 통해서 수평으로 된 레이아웃을 잡을 수 있다.*/
+    float: left;
+    /* 요소를 띄우는 속성*/
+
+    margin-right: 10px;
+}
+
+.clearfix::after {
+    /* ::는 가상 요소 선택자*/
+    content: "";
+    display: block;
+    clear: both;
 }
