@@ -51,3 +51,49 @@ body{
 .footer{
     background: purple;
 }
+/*
+
+position: absolute 일때
+자식요소 는 부모요소의 속성들을 받아오지 못한다.
+그럴떄 상속 받을 수 있는 값이
+inherit이다.
+
+예륻들어
+
+.container{
+    padding: 30px;
+}
+일때
+
+.container div{
+    position: absolute;
+    padding: inherit;
+}
+이렇게 쓰면 부모속성의 값도 상속이 가능하다.
+
+*/
+/*
+text-decoration
+*/
+/*
+브라우저에서 지원하는 스타일에 따라 요소에 적용되는 스타일이 있을것이다.
+
+그럴땐
+부모요소의 속성값을 0;으로 만들어주고
+이후 자식요소의 속성값을 내가 원하는 값으로 초기화를 시켜주자.
+
+
+특히 li 태그로 navigation bar를 만들었을떄 그러한데
+
+부모의 font-size를 0으로 자식을 내가 font-size : 1.3rem(이런 형식으로),
+그리고 padding을 30px정도로 넉넉하게 사용자들이 보기, 그리고 클릭하게 편하게 만들어주면 될것
+*/
+/*
+float 속성은 normal flow 영역을 벗어나기 때문에 반드시 레이아웃 체크를 해야한다.
+*/
+
+/*
+call-to-action
+버튼 등 액션이 일어나거나 할때 발생하는 css(버튼 눌렀을때 색상이 변한다거나 그런것)
+
+*/
