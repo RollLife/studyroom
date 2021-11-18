@@ -3,10 +3,24 @@
 *::after {
     box-sizing: border-box;
 }
+html{
+/*    blabla*/
+}
+body{
+    /*최소로 작아지면 안되는 해상도*/
+    min-width: 1060px;
+}
 .header{
     background: yellow;
 }
 
+.container{
+    min-width: 1440px;
+
+    /*margin auto는 margin을 남은 공간에 비례해 가운데로 맞춰준다.
+    가운데 정렬*/
+    margin: auto;
+}
 .main{
     background: lime;
 }
@@ -17,13 +31,16 @@
     background: blue;
     float: left;
     width: 70%
+
 }
 .side-content{
     background: pink;
     float: right;
     width: 30%
 }
-
+.nav{
+    /*    text-align : right -> 전체 텍스트 오른쪽 정렬*/
+}
 /* CONTENT-INFO*/
 .content-info{
     background: green;
