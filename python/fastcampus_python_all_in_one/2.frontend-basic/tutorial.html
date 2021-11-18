@@ -26,5 +26,75 @@
 </div>
 
 
+<p>overflow</p>
+<p>normalflow</p>
+
+복잡한 방식의 레이아웃을 배치하는 방법
+1. float property
+2. position property
+
+float : left, right,
+position : relative (상대위치), absolute(절대 좌표위치) , fixed(브라우저 창 기준으로화면에 고정)
+position의 기본값 : static
+
+top, left, right, bottom 속성을 부여가능
+clear : left, right, both
+
+tag selector : tag{...}
+class selector : .selector
+id selector: #id-selector , priority 1
+
+priority : id > class > tag
+
+
+comma: multiple selector choose
+<span>h1, p, div { ...}</span>
+
+family child choose : >
+<span>div > id-selector</span>
+
+
+<div><span>가상선택자</span>
+hover , active, focus
+마우스가 올라가있거나 활성화되어있거나 탭키를 눌ㄹ렀을때 요소들을 선택할때
+
+nth-child(1) ->
+
+last-of-type : 선택자 요소의 하위 div요소 중 마지막 요소
+</div>
+
+가상요소 : 요소 앞에 가상 요소를 넣어 콘텐트를 넣어줌
+ex) h2::before
+
+<div class="question">
+    <span>선택자 구체성</span>
+    <span>cascading</span>
+</div>
+
+
+css reset -> 브라우저마다 제공되는 스타일이 다른것
+그것 스타일을 reset해주는것.
+하지만 만들어진지 조금 오래되었다.
+<a href="https://meyerweb.com/eric/tools/css/reset/">css reset</a>
+
+css normalaize -> 브라우저마다의 스타일을 재조정해주고 reset이 아닌
+유용한 부분은 남겨두고 브라우저마다 일관적이지 않은 부분들을 일반적이게 만들어줌
+<a href="https://necolas.github.io/normalize.css/">css normalize</a>
+
+<h1>웹페이지의 기본 구조</h1>
+
+<h4>header</h4>
+<h4>main</h4>
+
+main. hero-section
+기본적으로 제일 보이는 메인 화면
+메인 페이지의 기본적으로 파악할 수 잇는 링크와 함께 있다.
+
+main-content
+side-content
+<h4>footer</h4>
+섹션으로 나뉨
+
+
 </body>
 </html>
