@@ -11,3 +11,6 @@ django-admin startproject mysite
 # test django successful running
 cd mysite
 python manage.py runserver
+
+# add polls add
+python manage.py startapp polls
