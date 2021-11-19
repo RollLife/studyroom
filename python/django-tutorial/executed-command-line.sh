@@ -28,3 +28,12 @@ python manage.py migrate
 python manage.py shell
 exit
 
+# add superuser(admin)
+# you can check http://127.0.0.1:8000/admin/
+python manage.py createsuperuser
+admin # username
+admin@example.com #admin email
+chapchap #(password)
+chapchap #(password again)
+
+
