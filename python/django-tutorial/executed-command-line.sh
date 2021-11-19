@@ -20,3 +20,6 @@ python manage.py migrate
 
 # migration models in django
 python manage.py makemigrations polls
+
+# migrate database table
+python manage.py migrate
