@@ -23,3 +23,8 @@ python manage.py makemigrations polls
 
 # migrate database table
 python manage.py migrate
+
+# run django api in shell
+python manage.py shell
+exit
+
