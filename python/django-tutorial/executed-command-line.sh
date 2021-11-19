@@ -14,3 +14,6 @@ python manage.py runserver
 
 # add polls add
 python manage.py startapp polls
+
+# add database (sqlite3)
+python manage.py migrate
