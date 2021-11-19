@@ -17,3 +17,6 @@ python manage.py startapp polls
 
 # add database (sqlite3)
 python manage.py migrate
+
+# migration models in django
+python manage.py makemigrations polls
